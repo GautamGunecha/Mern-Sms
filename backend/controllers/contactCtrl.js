@@ -13,6 +13,12 @@ const createNewContact = asyncHandler(async (req, res) => {
     if (!contactNumber)
       return res.status(400).json({ msg: "Please provide contact number." });
 
+    const isValid = validatePhoneNumber(contactNumber);
+    if (!isValid)
+      return res
+        .status(400)
+        .json({ msg: "Please provide valid contact number." });
+
     const user = await ContactLists.findOne({ contactNumber });
     if (user)
       return res
@@ -51,5 +57,11 @@ const deleteContact = asyncHandler(async (req, res) => {
     return res.status(400).json({ msg: error });
   }
 });
+
+const validatePhoneNumber = (contactNumber) => {
+  const regex = /^\+91\d{10}$/;
+  if (contactNumber.match(regex)) return true;
+  return false;
+};
 
 module.exports = { createNewContact, getAllContacts, deleteContact };

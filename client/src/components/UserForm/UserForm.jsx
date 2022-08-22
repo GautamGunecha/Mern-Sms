@@ -8,12 +8,13 @@ import "./UserForm.css";
 const UserForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [contactNumber, setContactNumber] = useState();
+  const [contactNumber, setContactNumber] = useState("");
 
   const dispatch = useDispatch();
 
   const handleManualFormSubmit = (e) => {
     e.preventDefault();
+
     const data = {
       firstName,
       lastName,
