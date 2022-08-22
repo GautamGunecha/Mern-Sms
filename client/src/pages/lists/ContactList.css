@@ -1,38 +1,33 @@
 .contactLists {
-    width: 70%;
+    width: 80%;
     margin: 1em auto;
 }
 
-.userLists p {
+.lists p {
     font-size: 18px;
     font-weight: 600;
     margin-bottom: 1em;
-    text-align: left;
 }
 
-.userLists section {
+.lists section {
     display: flex;
-    align-items: center;
+    gap: 1em;
+    width: 100%;
     justify-content: flex-end;
-    gap: 1.5em;
 }
 
-.userLists section button {
-    width: 20%;
-}
-
-.btn-remove {
+.remove-btn {
     background-color: red;
 }
 
-.btn-remove:hover {
-    background-color: rgb(210, 65, 65);
+.remove-btn:hover {
+    background-color: rgb(229, 66, 66);
 }
 
-.btn-reqotp {
+.sms-btn {
     background-color: green;
 }
 
-.btn-reqotp:hover {
+.sms-btn:hover {
     background-color: lightgreen;
 }

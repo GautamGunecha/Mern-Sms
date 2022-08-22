@@ -1,30 +1,40 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
 
 import "./PhoneBook.css";
 import Card from "../Card/Card";
-import { createNewContactAction } from "../../redux/actions/createContactAction";
+import server from "../../apis/server";
 
 const PhoneBook = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phoneNumber, setphoneNumber] = useState(Number);
 
-  const dispatch = useDispatch();
+  const [msg, setMsg] = useState("");
+  const [err, setErr] = useState("");
 
-  const handleCustomFormSubmit = (e) => {
+  const handleCustomFormSubmit = async (e) => {
     e.preventDefault();
     const data = {
       firstName,
       lastName,
-      number: phoneNumber,
+      phoneNumber,
     };
-    dispatch(createNewContactAction(data));
-    alert("Contact added to list");
 
-    setFirstName("");
-    setLastName("");
-    setphoneNumber("");
+    await server
+      .post("/new/contact", data)
+      .then((res) => {
+        setErr("");
+        if (res.data) {
+          setMsg("Contact Save to contact list");
+          setFirstName("");
+          setLastName("");
+          setphoneNumber("");
+        }
+      })
+      .catch((err) => {
+        setMsg("");
+        setErr(err.response.data.msg);
+      });
   };
 
   const handleJsonFormSubmit = (e) => {
@@ -34,6 +44,9 @@ const PhoneBook = () => {
     <div className="phoneBook">
       <Card>
         <h1>Input Customer Details</h1>
+
+        {msg ? <p className="success">{msg}</p> : ""}
+        {err ? <p className="error">{err}</p> : ""}
         <form onSubmit={handleCustomFormSubmit} className="phoneBookForm">
           <label>First Name</label>
           <input

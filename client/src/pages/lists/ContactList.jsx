@@ -1,50 +1,45 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import server from "../../apis/server";
 
-import "./ContactList.css";
-import { removeUserContact } from "../../redux/actions/createContactAction";
 import Card from "../../components/Card/Card";
+import "./ContactList.css";
 
 const ContactList = () => {
-  const { contacts } = useSelector((state) => state.phoneBook);
-  const dispatch = useDispatch();
+  const [data, setData] = useState([]);
 
-  const removeContacts = (number) => {
-    dispatch(removeUserContact(number));
-    alert("Contact Removed!");
+  const removeContacts = async (id) => {
+    await server.delete("/delete/contact", { id });
   };
-
-  const userContactLists = () => {
-    return (
-      <>
-        {contacts.map((data) => (
-          <Card key={data.number}>
-            <div className="userLists">
-              <p>
-                {data.firstName} {data.lastName}
-              </p>
-              <p>Contact Number: {data.number}</p>
-
-              <section>
-                <button
-                  className="btn-remove"
-                  onClick={() => removeContacts(data.number)}
-                >
-                  Remove
-                </button>
-                <button className="btn-reqotp">Send Message</button>
-              </section>
-            </div>
-          </Card>
-        ))}
-      </>
-    );
-  };
+  useEffect(() => {
+    const fetchContacts = async () => {
+      await server
+        .get("/all/contacts")
+        .then((res) => setData(res.data))
+        .catch((err) => {
+          setData([]);
+          console.log(err);
+        });
+    };
+    fetchContacts();
+  }, []);
 
   return (
     <div className="contactLists">
-      {contacts.length === 0 ? <p>No Contacts Found</p> : ""}
-      {userContactLists()}
+      {data.length === 0 ? <h1>No contacts found!</h1> : ""}
+      {data.map((content) => (
+        <Card key={content._id}>
+          <div className="lists">
+            <p>
+              Full Name: {content.firstName} {content.lastName}
+            </p>
+            <p>Contact Number: {content.phoneNumber}</p>
+            <section>
+              <button className="remove-btn">Remove Contact</button>
+              <button className="sms-btn">Send Sms</button>
+            </section>
+          </div>
+        </Card>
+      ))}
     </div>
   );
 };
