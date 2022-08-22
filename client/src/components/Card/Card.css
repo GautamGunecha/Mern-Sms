@@ -1,0 +1,13 @@
+.card {
+    width: 100%;
+    padding: 8px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+    margin-bottom: 1.5em;
+}
+
+@media screen and (max-width: 700px) {
+    .card {
+        width: 90%;
+        margin: 1em auto;
+    }
+}

@@ -1,0 +1,38 @@
+.contactLists {
+    width: 70%;
+    margin: 1em auto;
+}
+
+.userLists p {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 1em;
+    text-align: left;
+}
+
+.userLists section {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 1.5em;
+}
+
+.userLists section button {
+    width: 20%;
+}
+
+.btn-remove {
+    background-color: red;
+}
+
+.btn-remove:hover {
+    background-color: rgb(210, 65, 65);
+}
+
+.btn-reqotp {
+    background-color: green;
+}
+
+.btn-reqotp:hover {
+    background-color: lightgreen;
+}
