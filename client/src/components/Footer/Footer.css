@@ -1,26 +1,20 @@
-.header {
+.footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 75%;
     box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
-    margin: auto;
     padding: 1em;
+    margin: auto;
 }
 
-.header section {
+.footer section {
     display: flex;
     gap: 1em;
 }
 
-.header section p {
+.footer section p {
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
-}
-
-@media screen and (max-width: 800px) {
-    .header {
-        width: 100%;
-    }
 }
