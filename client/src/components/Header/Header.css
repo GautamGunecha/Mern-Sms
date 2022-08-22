@@ -23,4 +23,8 @@
     .header {
         width: 100%;
     }
+
+    .header section p {
+        font-size: 11px;
+    }
 }
