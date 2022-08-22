@@ -1,0 +1,4 @@
+export const LOADING = "LOADING";
+export const CREATE_NEW_CONTACT = "CREATE_NEW_CONTACT";
+export const GET_ALL_USERS_DETAIL = "GET_ALL_USERS_DETAIL";
+export const DELETE_USER = "DELETE_USER";
