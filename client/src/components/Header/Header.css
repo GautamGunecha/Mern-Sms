@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 75%;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    margin: auto;
+    padding: 1em;
+}
+
+.header section {
+    display: flex;
+    gap: 1em;
+}
+
+.header h1 {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.header section p {
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 800px) {
+    .header {
+        width: 100%;
+    }
+}
