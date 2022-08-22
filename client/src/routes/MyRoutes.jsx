@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "../components/Header/Header";
-import ContactLists from "../pages/ContactLists";
+import ContactLists from "../pages/ContactList/ContactLists";
 import Home from "../pages/Home";
 
 const MyRoutes = () => {

@@ -5,13 +5,20 @@ const initialState = {
 };
 
 export const createNewContactReducer = (state = {}, action) => {
-  if (actionTypes.CREATE_NEW_CONTACT)
-    return { ...state, state: action.payload };
-  return state;
+  switch (action.type) {
+    case actionTypes.CREATE_NEW_CONTACT:
+      return { ...state, state: action.payload };
+
+    default:
+      return state;
+  }
 };
 
 export const getAllContactsReducer = (state = initialState, action) => {
-  if (actionTypes.GET_ALL_USERS_DETAIL)
-    return { ...state, contactLists: action.payload };
-  return state;
+  switch (action.type) {
+    case actionTypes.GET_ALL_USERS_DETAIL:
+      return { ...state, contactLists: action.payload };
+    default:
+      return state;
+  }
 };

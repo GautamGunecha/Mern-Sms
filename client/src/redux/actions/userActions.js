@@ -38,6 +38,7 @@ export const getAllContacts = () => async (dispatch) => {
       type: actionTypes.GET_ALL_USERS_DETAIL,
       payload: response.data,
     });
+
     dispatch({
       type: actionTypes.LOADING,
       payload: false,

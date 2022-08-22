@@ -1,0 +1,51 @@
+.contactLists {
+    width: 75%;
+    margin: 1em auto;
+}
+
+.loading {
+    font-size: 20px;
+    margin-top: 1em;
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 1em;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+.user-list p {
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    font-weight: 600;
+}
+
+.user-list p span {
+    font-weight: 500;
+}
+
+.user-list section {
+    display: flex;
+    gap: 1em;
+    justify-content: flex-end;
+}
+
+.del-btn {
+    background-color: red;
+}
+
+.del-btn:hover {
+    background-color: rgb(236, 76, 76);
+}
+
+.send-btn {
+    background-color: green;
+}
+
+.send-btn:hover {
+    background-color: lightgreen;
+}

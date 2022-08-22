@@ -10,7 +10,7 @@ import {
 const rootReducer = combineReducers({
   alert: loadingReducer,
   newContact: createNewContactReducer,
-  contactLists: getAllContactsReducer,
+  contacts: getAllContactsReducer,
 });
 
 const middleware = [thunk];
