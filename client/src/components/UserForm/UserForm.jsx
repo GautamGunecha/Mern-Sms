@@ -8,7 +8,7 @@ import "./UserForm.css";
 const UserForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [contactNumber, setContactNumber] = useState(Number);
+  const [contactNumber, setContactNumber] = useState();
 
   const dispatch = useDispatch();
 
@@ -33,6 +33,7 @@ const UserForm = () => {
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
             required
+            placeholder="Enter first name"
           />
 
           <label>Last Name</label>
@@ -41,6 +42,7 @@ const UserForm = () => {
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
             required
+            placeholder="Enter last name"
           />
 
           <label>Contact Number</label>
@@ -49,6 +51,7 @@ const UserForm = () => {
             value={contactNumber}
             onChange={(e) => setContactNumber(e.target.value)}
             required
+            placeholder="+910000000000"
           />
 
           <button type="submit">Submit Details</button>
