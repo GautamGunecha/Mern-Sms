@@ -44,9 +44,9 @@ const getAllContacts = asyncHandler(async (req, res) => {
 const deleteContact = asyncHandler(async (req, res) => {
   try {
     await ContactLists.findByIdAndDelete(req.params._id);
-    return res
-      .status(200)
-      .json({ msg: "User detail deleted from contact list." });
+
+    const updatedLists = await ContactLists.find();
+    return res.status(200).json(updatedLists);
   } catch (error) {
     return res.status(400).json({ msg: error });
   }

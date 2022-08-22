@@ -71,7 +71,17 @@ export const deleteContact = (_id) => async (dispatch) => {
 
     dispatch({
       type: actionTypes.DELETE_USER,
+      payload: [],
+    });
+
+    dispatch({
+      type: actionTypes.GET_ALL_USERS_DETAIL,
       payload: response.data,
+    });
+
+    dispatch({
+      type: actionTypes.SEND_NOTIFICATION_SUCCESS,
+      payload: "User contact data deleted.",
     });
 
     dispatch({

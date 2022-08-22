@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getAllContacts } from "../../redux/actions/userActions";
+import { getAllContacts, deleteContact } from "../../redux/actions/userActions";
 import Card from "../../components/Card/Card";
 import "./ContactLists.css";
 
@@ -9,6 +9,10 @@ const ContactLists = () => {
   const dispatch = useDispatch();
   const { contactLists } = useSelector((state) => state.contacts);
   const { loading } = useSelector((state) => state.alert);
+
+  const deleteUser = (id) => {
+    dispatch(deleteContact(id));
+  };
 
   useEffect(() => {
     dispatch(getAllContacts());
@@ -31,7 +35,9 @@ const ContactLists = () => {
             </p>
 
             <section>
-              <button className="del-btn">Delete Contact</button>
+              <button onClick={() => deleteUser(data._id)} className="del-btn">
+                Delete Contact
+              </button>
               <button className="send-btn">Send Sms</button>
             </section>
           </div>
