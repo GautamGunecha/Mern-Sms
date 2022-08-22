@@ -50,3 +50,9 @@
 .json-form button:hover {
     background-color: lightgreen;
 }
+
+@media screen and (max-width: 800px) {
+    .userForm {
+        flex-wrap: wrap;
+    }
+}

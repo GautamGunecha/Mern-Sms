@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import "./Header.css";
 
@@ -7,7 +8,9 @@ const Header = () => {
     <div className="header">
       <h1>Sms</h1>
       <section>
-        <p>Contact Lists</p>
+        <Link to="/contacts">
+          <p>Contact Lists</p>
+        </Link>
         <p>Sms Details</p>
       </section>
     </div>
