@@ -32,6 +32,11 @@
     display: flex;
     gap: 1em;
     justify-content: flex-end;
+    width: 100%;
+}
+
+.user-list section button {
+    width: 10em;
 }
 
 .del-btn {

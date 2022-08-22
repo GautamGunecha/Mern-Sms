@@ -6,7 +6,9 @@ import "./Header.css";
 const Header = () => {
   return (
     <div className="header">
-      <h1>Sms</h1>
+      <Link to="/">
+        <h1>Sms</h1>
+      </Link>
       <section>
         <Link to="/contacts">
           <p>Contact Lists</p>

@@ -32,6 +32,7 @@ const UserForm = () => {
             type="text"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
 
           <label>Last Name</label>
@@ -39,6 +40,7 @@ const UserForm = () => {
             type="text"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
 
           <label>Contact Number</label>
@@ -46,6 +48,7 @@ const UserForm = () => {
             type="number"
             value={contactNumber}
             onChange={(e) => setContactNumber(e.target.value)}
+            required
           />
 
           <button type="submit">Submit Details</button>

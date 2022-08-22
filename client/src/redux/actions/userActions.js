@@ -7,7 +7,17 @@ export const createNewContact = (data) => async (dispatch) => {
     payload: true,
   });
   try {
-    const response = await server.post("/add/contact", data);
+    const response = await server.post("/add/contact", data).catch((error) => {
+      dispatch({
+        type: actionTypes.SEND_NOTIFICATION_ERROR,
+        payload: error.response.data.msg,
+      });
+    });
+
+    dispatch({
+      type: actionTypes.SEND_NOTIFICATION_SUCCESS,
+      payload: response.data.msg,
+    });
 
     dispatch({
       type: actionTypes.CREATE_NEW_CONTACT,

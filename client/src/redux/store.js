@@ -2,6 +2,8 @@ import { combineReducers, applyMiddleware, createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import { loadingReducer } from "./reducers/alertReducer";
+import { notificationReducer } from "./reducers/notificationReducer";
+
 import {
   createNewContactReducer,
   getAllContactsReducer,
@@ -11,6 +13,7 @@ const rootReducer = combineReducers({
   alert: loadingReducer,
   newContact: createNewContactReducer,
   contacts: getAllContactsReducer,
+  notify: notificationReducer,
 });
 
 const middleware = [thunk];
