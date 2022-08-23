@@ -21,6 +21,7 @@ const ContactLists = () => {
 
   return (
     <div className="contactLists">
+      <h1>Contacts Lists</h1>
       {loading ? <p className="loading">Loading...</p> : ""}
       {contactLists.map((data) => (
         <Card key={data._id}>
@@ -31,16 +32,13 @@ const ContactLists = () => {
                 {data.firstName} {data.lastName}
               </span>{" "}
             </p>
-            <p>
-              Contact Number: <span>{data.contactNumber}</span>
-            </p>
 
             <section>
               <button onClick={() => deleteUser(data._id)} className="del-btn">
                 Delete Contact
               </button>
               <button className="send-btn">
-                <Link to={`/user/${data._id}`}>Send Sms</Link>
+                <Link to={`/user/${data._id}`}>Get User Info</Link>
               </button>
             </section>
           </div>

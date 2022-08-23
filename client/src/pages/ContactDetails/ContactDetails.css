@@ -1,0 +1,27 @@
+.contactDetails {
+    width: 75%;
+    margin: 1em auto;
+}
+
+.contactDetails p {
+    font-weight: 600;
+    margin-bottom: .5em;
+}
+
+.contactDetails p span {
+    font-weight: 500;
+}
+
+.contactDetails button {
+    width: 50%;
+    display: flex;
+    margin: 1em auto;
+    align-items: center;
+    justify-content: center;
+    background-color: green;
+}
+
+.contactDetails button:hover {
+    margin-top: 1em;
+    background-color: lightgreen;
+}

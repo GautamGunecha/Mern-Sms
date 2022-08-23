@@ -10,9 +10,6 @@ const Header = () => {
         <h1>Sms</h1>
       </Link>
       <section>
-        <Link to="/contacts">
-          <p>Contact Lists</p>
-        </Link>
         <p>Sms Details</p>
       </section>
     </div>

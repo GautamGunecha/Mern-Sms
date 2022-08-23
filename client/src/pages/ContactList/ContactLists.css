@@ -11,6 +11,10 @@
     margin-bottom: 1em;
 }
 
+.contactLists h1 {
+    margin-bottom: 1em;
+}
+
 .user-list {
     display: flex;
     flex-direction: column;
@@ -53,4 +57,10 @@
 
 .send-btn:hover {
     background-color: lightgreen;
+}
+
+@media screen and (max-width: 800px) {
+    .contactLists {
+        margin-top: 22em;
+    }
 }
