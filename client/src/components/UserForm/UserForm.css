@@ -51,6 +51,10 @@
     background-color: lightgreen;
 }
 
+.json-form textarea {
+    resize: none;
+}
+
 .json-form p {
     color: red;
     text-align: center;
