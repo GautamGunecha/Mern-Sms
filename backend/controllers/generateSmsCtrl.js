@@ -14,16 +14,15 @@ const generateSms = asyncHandler(async (req, res) => {
     if (!text || !receiver)
       return res.status(400).json({ msg: "Please provide msg details" });
 
-    // await client.messages
-    //   .create({
-    //     body: text,
-    //     to: receiver,
-    //     from: myNumber,
-    //   })
-    //   .then((message) => message);
+    await client.messages
+      .create({
+        body: text,
+        to: receiver,
+        from: myNumber,
+      })
+      .then((message) => message);
 
     // update user db
-
     await ContactLists.findByIdAndUpdate(id, {
       smsSent: true,
       $push: {

@@ -11,13 +11,18 @@
 
 .generate-msg {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 2em;
 }
 
 .generate-msg input {
     height: 30px;
     text-align: center;
+    padding: 15px;
+    font-size: 16px;
 }
+
 
 .generate-msg button {
     background-color: green;
@@ -30,6 +35,25 @@
 
 @media screen and (max-width: 800px) {
     .messages {
+        width: 90%;
+    }
+
+    .generate-msg {
+        display: flex;
+        flex-direction: column;
         width: 100%;
+    }
+
+    .generate-msg p {
+        font-size: 20px;
+        margin: 1em;
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .generate-msg input {
+        padding: 15px;
+        font-size: 16px;
+        font-weight: 600;
     }
 }
