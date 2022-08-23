@@ -43,6 +43,7 @@ const Messages = () => {
 
   return (
     <div className="messages">
+      {loading ? <p className="msg-loading">Sending Otp...</p> : ""}
       {contactNumber ? (
         <Card>
           <div className="generate-msg">

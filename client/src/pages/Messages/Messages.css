@@ -3,6 +3,11 @@
     margin: 1em auto;
 }
 
+.msg-loading {
+    text-align: center;
+    font-size: 15px;
+}
+
 .generate-msg {
     display: flex;
     gap: 2em;
