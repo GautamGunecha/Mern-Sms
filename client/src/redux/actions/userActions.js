@@ -111,7 +111,9 @@ export const getUser = (id) => async (dispatch) => {
   });
 
   try {
-    const response = await server.get(`/user/${id}`);
+    const response = await server
+      .get(`/user/${id}`)
+      .catch((err) => console.log(err));
 
     dispatch({
       type: actionTypes.GET_USER_DETAIL,

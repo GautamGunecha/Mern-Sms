@@ -18,11 +18,18 @@ export const getAllContactsReducer = (state = initialState, action) => {
     case actionTypes.DELETE_USER:
       return { ...state, contactLists: action.payload };
 
-    case actionTypes.GET_USER_DETAIL:
-      return { ...state, user: action.payload };
-
     case actionTypes.SEND_OTP:
       return { ...state, otpSuccess: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const userReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.GET_USER_DETAIL:
+      return { ...state, user: action.payload };
 
     default:
       return state;
