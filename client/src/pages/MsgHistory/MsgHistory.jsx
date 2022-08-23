@@ -7,6 +7,7 @@ import Card from "../../components/Card/Card";
 
 const MsgHistory = () => {
   const [msg, setMsg] = useState([]);
+  console.log(msg);
 
   useEffect(() => {
     const fetchMsg = () => {
@@ -34,7 +35,6 @@ const MsgHistory = () => {
               Contact Detail: <span>{data.contactNumber}</span>
             </p>
             <div>
-              <p>Previous Messages Sent with OTP</p>
               {data.messageHistory.map((item) => (
                 <section className="previousMsg" key={item.msg}>
                   <p>{item.msg}</p>

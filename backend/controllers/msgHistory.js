@@ -7,6 +7,9 @@ const getSmsHistory = asyncHandler(async (req, res) => {
 
     const data = await ContactLists.aggregate([
       {
+        $match: { smsSent: true },
+      },
+      {
         $project: {
           firstName: 1,
           lastName: 1,
