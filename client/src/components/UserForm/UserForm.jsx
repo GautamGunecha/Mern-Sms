@@ -22,6 +22,9 @@ const UserForm = () => {
     };
 
     dispatch(createNewContact(data));
+    setContactNumber("");
+    setFirstName("");
+    setLastName("");
   };
   return (
     <div className="userForm">
@@ -48,7 +51,7 @@ const UserForm = () => {
 
           <label>Contact Number</label>
           <input
-            type="number"
+            type="text"
             value={contactNumber}
             onChange={(e) => setContactNumber(e.target.value)}
             required

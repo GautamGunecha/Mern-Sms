@@ -24,6 +24,14 @@ export const createNewContact = (data) => async (dispatch) => {
       payload: response.data,
     });
 
+    // get user instantly
+    const user = await server.get("/all/contacts");
+
+    dispatch({
+      type: actionTypes.GET_ALL_USERS_DETAIL,
+      payload: user.data,
+    });
+
     dispatch({
       type: actionTypes.LOADING,
       payload: false,

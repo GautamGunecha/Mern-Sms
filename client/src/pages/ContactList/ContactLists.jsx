@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { getAllContacts, deleteContact } from "../../redux/actions/userActions";
+import { deleteContact, getAllContacts } from "../../redux/actions/userActions";
 import Card from "../../components/Card/Card";
 import "./ContactLists.css";
 
