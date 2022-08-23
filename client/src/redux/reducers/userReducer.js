@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionType";
 const initialState = {
   contactLists: [],
   user: [],
+  otpSuccess: false,
 };
 
 export const createNewContactReducer = (state = {}, action) => {
@@ -33,6 +34,15 @@ export const getUserReducer = (state = initialState, action) => {
     case actionTypes.GET_USER_DETAIL:
       return { ...state, user: action.payload };
 
+    default:
+      return state;
+  }
+};
+
+export const sendOTPReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.SEND_OTP:
+      return { ...state, otpSuccess: action.payload };
     default:
       return state;
   }

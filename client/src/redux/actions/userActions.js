@@ -129,3 +129,39 @@ export const getUser = (id) => async (dispatch) => {
     });
   }
 };
+
+export const sendOtp = (data) => async (dispatch) => {
+  dispatch({
+    type: actionTypes.LOADING,
+    payload: true,
+  });
+  try {
+    // send otp function
+    const response = await server.post("/send/sms", data).catch((error) => {
+      dispatch({
+        type: actionTypes.SEND_NOTIFICATION_ERROR,
+        payload: error.response.data.msg,
+      });
+    });
+
+    dispatch({
+      type: actionTypes.SEND_OTP,
+      payload: true,
+    });
+
+    dispatch({
+      type: actionTypes.SEND_NOTIFICATION_SUCCESS,
+      payload: response.data.msg,
+    });
+
+    dispatch({
+      type: actionTypes.LOADING,
+      payload: false,
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.LOADING,
+      payload: false,
+    });
+  }
+};

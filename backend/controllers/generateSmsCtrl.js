@@ -29,7 +29,7 @@ const generateSms = asyncHandler(async (req, res) => {
       smsSentDate: date.toUTCString(),
     });
 
-    return res.status(200).json({ msg: "Sms sent to registered mobile num." });
+    return res.status(200).json({ msg: "Sms sent to given mobile number." });
   } catch (error) {
     return res.status(400).json(error);
   }

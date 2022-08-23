@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import "./Messages.css";
 import Card from "../../components/Card/Card";
-import server from "../../apis/server";
+import { sendOtp } from "../../redux/actions/userActions";
 
 const Messages = () => {
   const [msg, setMsg] = useState("");
-  const [successMsg, setSuccessMsg] = useState("");
 
   const location = useLocation();
   const contactNumber = location.state.contactNumber;
   const id = location.state.id;
-  console.log(id);
+
+  const dispatch = useDispatch();
+  const { loading } = useSelector((state) => state.alert);
 
   const generateOTP = () => {
     const minVal = 100000;
@@ -27,14 +29,12 @@ const Messages = () => {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    await server
-      .post("/send/sms", {
-        text: msg,
-        receiver: contactNumber,
-        id,
-      })
-      .then((res) => setSuccessMsg(res.data.msg))
-      .catch((err) => console.log(err));
+    const data = {
+      text: msg,
+      receiver: contactNumber,
+      id,
+    };
+    dispatch(sendOtp(data));
   };
 
   useEffect(() => {
@@ -43,7 +43,6 @@ const Messages = () => {
 
   return (
     <div className="messages">
-      {successMsg && <p className="successMsg">{successMsg}</p>}
       {contactNumber ? (
         <Card>
           <div className="generate-msg">
