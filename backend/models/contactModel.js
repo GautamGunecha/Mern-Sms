@@ -14,7 +14,7 @@ const contactListSchema = new Schema(
       minLength: 3,
     },
     contactNumber: {
-      type: Number,
+      type: String,
       required: true,
       unique: true,
     },

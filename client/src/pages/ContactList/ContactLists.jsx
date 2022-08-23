@@ -22,8 +22,14 @@ const ContactLists = () => {
   return (
     <div className="contactLists">
       <h1>Contacts Lists</h1>
-      {loading ? <p className="loading">Loading...</p> : ""}
-      {contactLists.map((data) => (
+      {loading ? (
+        <p className="loading">Loading...</p>
+      ) : contactLists.length === 0 ? (
+        <p>No contacts added</p>
+      ) : (
+        ""
+      )}
+      {contactLists?.map((data) => (
         <Card key={data._id}>
           <div className="user-list">
             <p>
