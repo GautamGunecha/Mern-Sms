@@ -4,20 +4,12 @@ import thunk from "redux-thunk";
 import { loadingReducer } from "./reducers/alertReducer";
 import { notificationReducer } from "./reducers/notificationReducer";
 
-import {
-  createNewContactReducer,
-  getAllContactsReducer,
-  getUserReducer,
-  sendOTPReducer,
-} from "./reducers/userReducer";
+import { getAllContactsReducer } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
   alert: loadingReducer,
-  newContact: createNewContactReducer,
   contacts: getAllContactsReducer,
   notify: notificationReducer,
-  userDetails: getUserReducer,
-  otpSent: sendOTPReducer,
 });
 
 const middleware = [thunk];

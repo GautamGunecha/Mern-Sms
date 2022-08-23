@@ -11,7 +11,7 @@ const ContactDetails = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.userDetails);
+  const { user } = useSelector((state) => state.contacts);
 
   useEffect(() => {
     dispatch(getUser(id));
