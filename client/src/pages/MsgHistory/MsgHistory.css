@@ -27,3 +27,15 @@
 .previousMsg p {
     font-weight: 500;
 }
+
+
+@media screen and (max-width: 800px) {
+
+    .msg-history-content p {
+        font-size: 12px;
+    }
+
+    .previousMsg p {
+        font-size: 12px;
+    }
+}
