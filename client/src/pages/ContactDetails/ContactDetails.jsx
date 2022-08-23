@@ -13,7 +13,7 @@ const ContactDetails = () => {
 
   useEffect(() => {
     dispatch(getUser(id));
-  }, [dispatch]);
+  }, [dispatch, id]);
 
   return <div className="contactDetails"></div>;
 };
