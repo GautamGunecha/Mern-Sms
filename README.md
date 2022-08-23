@@ -20,7 +20,7 @@ https://mern-sms.vercel.app
 
 ## Documentation
 
-[Documentation](https://linktodocumentation)
+[Documentation](https://docs.google.com/document/d/1rnsWKTAdwtDPatAw-8bD0ELgtnvksTWERGvtxJPkNGU/edit?usp=sharing)
 
 
 ## Installation
