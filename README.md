@@ -5,7 +5,7 @@ Full Stack Web application, that can generate unique OTP and send to lists of co
 
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/GautamGunecha/Mern-Sms/blob/master/client/public/assets/Screenshot%20(4).png)
 
 
 ## Demo
