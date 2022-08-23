@@ -6,6 +6,7 @@ const express = require("express"),
   mongoose = require("mongoose");
 
 const app = express();
+const notFound = require("./middleware/error");
 
 // middleware
 app.use(express.json());
@@ -25,6 +26,8 @@ mongoose.connect(
 
 app.get("/", (req, res) => res.status(200).send("Backend connected!"));
 app.use("/", require("./routes/allRoutes"));
+
+app.use(notFound);
 
 const port = process.env.PORT || 5000;
 app.listen(port, () =>

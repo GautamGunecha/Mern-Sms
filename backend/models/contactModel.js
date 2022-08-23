@@ -1,6 +1,11 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+const messages = new Schema({
+  msg: { type: String, default: "" },
+  date: { type: Date, default: "" },
+});
+
 const contactListSchema = new Schema(
   {
     firstName: {
@@ -18,7 +23,7 @@ const contactListSchema = new Schema(
       required: true,
       unique: true,
     },
-    msg: [{ body: String, date: Date }],
+    messagesHistory: [messages],
     smsSent: {
       type: Boolean,
       default: false,
