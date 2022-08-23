@@ -7,7 +7,6 @@ import Card from "../../components/Card/Card";
 
 const MsgHistory = () => {
   const [msg, setMsg] = useState([]);
-  console.log(msg);
 
   useEffect(() => {
     const fetchMsg = () => {
