@@ -20,6 +20,7 @@ const ContactDetails = () => {
   const handleNavigation = () => {
     navigate("/send/sms", {
       state: {
+        id,
         contactNumber: user.contactNumber,
       },
     });

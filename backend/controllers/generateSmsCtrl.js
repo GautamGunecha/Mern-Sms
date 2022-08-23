@@ -1,13 +1,15 @@
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const asyncHandler = require("express-async-handler");
+const ContactLists = require("../models/contactModel");
 
 const client = require("twilio")(accountSid, authToken, { lazyLoading: true });
 
 const generateSms = asyncHandler(async (req, res) => {
   try {
-    const { text, receiver } = req.body;
+    const { text, receiver, id } = req.body;
     const myNumber = process.env.MY_TWILIO_NUMBER;
+    const date = new Date();
 
     if (!text || !receiver)
       return res.status(400).json({ msg: "Please provide msg details" });
@@ -19,6 +21,13 @@ const generateSms = asyncHandler(async (req, res) => {
         from: myNumber,
       })
       .then((message) => message);
+
+    // update user db
+    await ContactLists.findByIdAndUpdate(id, {
+      smsSent: true,
+      smsText: text,
+      smsSentDate: date.toUTCString(),
+    });
 
     return res.status(200).json({ msg: "Sms sent to registered mobile num." });
   } catch (error) {

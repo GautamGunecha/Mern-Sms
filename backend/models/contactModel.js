@@ -27,7 +27,8 @@ const contactListSchema = new Schema(
       default: "",
     },
     smsSentDate: {
-      type: String,
+      type: Date,
+      default: "",
     },
   },
   { timestamps: true }

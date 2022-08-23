@@ -2,3 +2,35 @@
     width: 75%;
     margin: 1em auto;
 }
+
+.successMsg {
+    color: green;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.generate-msg {
+    display: flex;
+    gap: 2em;
+}
+
+.generate-msg input {
+    height: 30px;
+    text-align: center;
+}
+
+.generate-msg button {
+    background-color: green;
+}
+
+.generate-msg button:hover {
+    background-color: lightgreen;
+}
+
+
+@media screen and (max-width: 800px) {
+    .messages {
+        width: 100%;
+    }
+}

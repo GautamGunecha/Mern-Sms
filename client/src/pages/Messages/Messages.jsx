@@ -7,10 +7,12 @@ import server from "../../apis/server";
 
 const Messages = () => {
   const [msg, setMsg] = useState("");
-  const [otp, setOTP] = useState();
+  const [successMsg, setSuccessMsg] = useState("");
 
   const location = useLocation();
   const contactNumber = location.state.contactNumber;
+  const id = location.state.id;
+  console.log(id);
 
   const generateOTP = () => {
     const minVal = 100000;
@@ -20,27 +22,39 @@ const Messages = () => {
       Math.random() * (maxVal - minVal + 1) + minVal
     );
 
-    setOTP(randomNumber);
+    setMsg(`Hi Your Otp is ${randomNumber}`);
   };
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    await server.post("/");
+    await server
+      .post("/send/sms", {
+        text: msg,
+        receiver: contactNumber,
+        id,
+      })
+      .then((res) => setSuccessMsg(res.data.msg))
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
-    setMsg(`Hi Your Otp is ${otp}`);
     generateOTP();
   }, []);
 
   return (
     <div className="messages">
-      <Card>
-        <div className="">
-          <input type="text" value={msg} readOnly />
-          <button onClick={sendMessage}>Send</button>
-        </div>
-      </Card>
+      {successMsg && <p className="successMsg">{successMsg}</p>}
+      {contactNumber ? (
+        <Card>
+          <div className="generate-msg">
+            <p>Sending Msg to: {contactNumber}</p>
+            <input type="text" value={msg} readOnly />
+            <button onClick={sendMessage}>Send</button>
+          </div>
+        </Card>
+      ) : (
+        <p>Please Select user to send sms</p>
+      )}
     </div>
   );
 };
