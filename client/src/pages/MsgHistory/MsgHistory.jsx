@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import moment from "moment";
 
 import "./MsgHistory.css";
 import server from "../../apis/server";
@@ -37,7 +38,7 @@ const MsgHistory = () => {
               {data.messageHistory.map((item) => (
                 <section className="previousMsg" key={item.msg}>
                   <p>{item.msg}</p>
-                  <p>Date: {item.date.slice(0, item.date.indexOf("T"))}</p>
+                  <p>Date: {moment(item.date).format("MMM DD yyyy, HH:mm")}</p>
                 </section>
               ))}
             </div>
