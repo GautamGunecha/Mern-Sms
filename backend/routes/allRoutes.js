@@ -6,6 +6,7 @@ const {
   getUserDetail,
 } = require("../controllers/contactCtrl");
 const { generateSms } = require("../controllers/generateSmsCtrl");
+const getSmsHistory = require("../controllers/msgHistory");
 
 // phonebook apis
 router.post("/add/contact", createNewContact);
@@ -15,5 +16,8 @@ router.get("/user/:id", getUserDetail);
 
 // sms generating api
 router.post("/send/sms", generateSms);
+
+// fetch history
+router.get("/sms/history", getSmsHistory);
 
 module.exports = router;

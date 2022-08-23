@@ -18,17 +18,10 @@ const contactListSchema = new Schema(
       required: true,
       unique: true,
     },
+    msg: [{ body: String, date: Date }],
     smsSent: {
       type: Boolean,
       default: false,
-    },
-    smsText: {
-      type: String,
-      default: "",
-    },
-    smsSentDate: {
-      type: Date,
-      default: "",
     },
   },
   { timestamps: true }

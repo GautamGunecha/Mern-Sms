@@ -23,10 +23,10 @@ const generateSms = asyncHandler(async (req, res) => {
       .then((message) => message);
 
     // update user db
+
     await ContactLists.findByIdAndUpdate(id, {
       smsSent: true,
-      smsText: text,
-      smsSentDate: date.toUTCString(),
+      $push: { body: text, date: date.toISOString() },
     });
 
     return res.status(200).json({ msg: "Sms sent to given mobile number." });
