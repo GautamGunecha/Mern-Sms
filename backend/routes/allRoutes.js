@@ -3,6 +3,7 @@ const {
   createNewContact,
   deleteContact,
   getAllContacts,
+  getUserDetail,
 } = require("../controllers/contactCtrl");
 const { generateSms } = require("../controllers/generateSmsCtrl");
 
@@ -10,6 +11,7 @@ const { generateSms } = require("../controllers/generateSmsCtrl");
 router.post("/add/contact", createNewContact);
 router.get("/all/contacts", getAllContacts);
 router.delete("/delete/contact/:_id", deleteContact);
+router.get("/user/:id", getUserDetail);
 
 // sms generating api
 router.post("/send/sms", generateSms);

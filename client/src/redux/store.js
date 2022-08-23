@@ -7,6 +7,7 @@ import { notificationReducer } from "./reducers/notificationReducer";
 import {
   createNewContactReducer,
   getAllContactsReducer,
+  getUserReducer,
 } from "./reducers/userReducer";
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   newContact: createNewContactReducer,
   contacts: getAllContactsReducer,
   notify: notificationReducer,
+  userDetails: getUserReducer,
 });
 
 const middleware = [thunk];

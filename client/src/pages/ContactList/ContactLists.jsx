@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 import { getAllContacts, deleteContact } from "../../redux/actions/userActions";
 import Card from "../../components/Card/Card";
@@ -38,7 +39,9 @@ const ContactLists = () => {
               <button onClick={() => deleteUser(data._id)} className="del-btn">
                 Delete Contact
               </button>
-              <button className="send-btn">Send Sms</button>
+              <button className="send-btn">
+                <Link to={`/user/${data._id}`}>Send Sms</Link>
+              </button>
             </section>
           </div>
         </Card>

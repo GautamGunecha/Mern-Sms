@@ -58,10 +58,24 @@ const deleteContact = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserDetail = asyncHandler(async (req, res) => {
+  try {
+    const user = await ContactLists.findById({ _id: req.params.id });
+    return res.status(200).json(user);
+  } catch (error) {
+    return res.status(400).json(error);
+  }
+});
+
 const validatePhoneNumber = (contactNumber) => {
   const regex = /^\+91\d{10}$/;
   if (contactNumber.match(regex)) return true;
   return false;
 };
 
-module.exports = { createNewContact, getAllContacts, deleteContact };
+module.exports = {
+  createNewContact,
+  getAllContacts,
+  deleteContact,
+  getUserDetail,
+};

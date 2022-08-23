@@ -2,6 +2,7 @@ import * as actionTypes from "../actions/actionType";
 
 const initialState = {
   contactLists: [],
+  user: [],
 };
 
 export const createNewContactReducer = (state = {}, action) => {
@@ -21,6 +22,16 @@ export const getAllContactsReducer = (state = initialState, action) => {
 
     case actionTypes.DELETE_USER:
       return { ...state, contactLists: action.payload };
+
+    default:
+      return state;
+  }
+};
+
+export const getUserReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case actionTypes.GET_USER_DETAIL:
+      return { ...state, user: action.payload };
 
     default:
       return state;

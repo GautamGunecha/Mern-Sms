@@ -95,3 +95,29 @@ export const deleteContact = (_id) => async (dispatch) => {
     });
   }
 };
+
+export const getUser = (id) => async (dispatch) => {
+  dispatch({
+    type: actionTypes.LOADING,
+    payload: true,
+  });
+
+  try {
+    const response = await server.get(`/user/${id}`);
+
+    dispatch({
+      type: actionTypes.GET_USER_DETAIL,
+      payload: response.data,
+    });
+
+    dispatch({
+      type: actionTypes.LOADING,
+      payload: false,
+    });
+  } catch (error) {
+    dispatch({
+      type: actionTypes.LOADING,
+      payload: false,
+    });
+  }
+};
